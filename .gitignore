@@ -9,3 +9,10 @@ captures/
 *.aab
 .DS_Store
 dist/
+*.jks
+*.keystore
+*.p12
+*.pfx
+signing.properties
+keystore.properties
+store.password

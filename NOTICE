@@ -1,0 +1,23 @@
+浮译
+Copyright 2026 panming
+
+本项目以 Apache License, Version 2.0 授权。完整文本见 LICENSE。
+
+第三方声明
+==========
+
+OkHttp 4.12.0 随应用分发，并带有 public suffix 数据。其 jar 内
+okhttp3/internal/publicsuffix/NOTICE 的原文是：
+
+    Note that publicsuffixes.gz is compiled from The Public Suffix List:
+    https://publicsuffix.org/list/public_suffix_list.dat
+
+    It is subject to the terms of the Mozilla Public License, v. 2.0:
+    https://mozilla.org/MPL/2.0/
+
+Kotlin、kotlinx-coroutines、kotlinx-serialization、AndroidX 与 Jetpack Compose
+的直接依赖为 Apache-2.0。本次构建解析到的这些运行时产物没有单独的 NOTICE 文件。
+JUnit 4.13.2 只用于测试，许可证是 Eclipse Public License 1.0，不打进应用包。
+Android Gradle Plugin 及其 NOTICE 属于构建工具，不随应用包分发。
+
+各依赖的版本和许可证名称见 docs/开发与贡献.md。

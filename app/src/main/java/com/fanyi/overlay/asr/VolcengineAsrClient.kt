@@ -115,7 +115,7 @@ internal class VolcengineAsrClient(
             put("user", buildJsonObject {
                 put("uid", "fanyi-overlay")
                 put("platform", "Android")
-                put("app_version", "1.0.0")
+                put("app_version", "0.1.0")
             })
             put("audio", buildJsonObject {
                 put("format", "pcm")
