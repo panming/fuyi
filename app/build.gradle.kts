@@ -1,3 +1,4 @@
+import java.io.File
 import java.util.Properties
 
 plugins {
@@ -8,7 +9,7 @@ plugins {
 }
 
 data class ReleaseSigning(
-    val storeFile: java.io.File,
+    val storeFile: File,
     val storePassword: String,
     val keyAlias: String,
     val keyPassword: String,
@@ -27,11 +28,11 @@ fun loadReleaseSigning(): ReleaseSigning? {
         val props = Properties()
         propsFile.inputStream().use { props.load(it) }
         val storeName = props.getProperty("storeFile")?.trim().orEmpty()
-        val storePath = java.io.File(storeName)
+        val storePath = File(storeName)
         val store = when {
             storeName.isEmpty() -> null
             storePath.isAbsolute -> storePath
-            else -> java.io.File(propsFile.parentFile, storeName)
+            else -> File(propsFile.parentFile, storeName)
         }
         values["storeFile"] = store?.absolutePath.orEmpty()
         values["storePassword"] = props.getProperty("storePassword").orEmpty()
@@ -44,7 +45,7 @@ fun loadReleaseSigning(): ReleaseSigning? {
         values["keyPassword"] = System.getenv("FUYI_KEY_PASSWORD").orEmpty()
         if (values.values.all { it.isEmpty() }) return null
     }
-    val storeFile = values["storeFile"].orEmpty().let { if (it.isEmpty()) null else file(it) }
+    val storeFile = values["storeFile"].orEmpty().let { if (it.isEmpty()) null else File(it) }
     val ready = storeFile != null && storeFile.isFile &&
         values["storePassword"].orEmpty().isNotEmpty() &&
         values["keyAlias"].orEmpty().isNotEmpty() &&
