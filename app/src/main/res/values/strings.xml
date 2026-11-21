@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">浮译</string>
+    <string name="notification_channel">内录翻译</string>
+    <string name="notification_title">浮译正在翻译本机播放的声音</string>
+    <string name="notification_text">系统会显示屏幕捕获提示。应用不保存、不上传画面。</string>
+    <string name="notification_stop">停止</string>
+    <string name="notification_pause">停止翻译</string>
+    <string name="notification_resume">开始翻译</string>
+    <string name="notification_paused_title">浮译已暂停</string>
+    <string name="notification_paused_text">内录授权还在。点「开始翻译」即可继续，不用重新授权。</string>
+    <string name="tile_label">浮译</string>
+</resources>
