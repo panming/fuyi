@@ -27,10 +27,11 @@ fun loadReleaseSigning(): ReleaseSigning? {
         val props = Properties()
         propsFile.inputStream().use { props.load(it) }
         val storeName = props.getProperty("storeFile")?.trim().orEmpty()
+        val storePath = java.io.File(storeName)
         val store = when {
             storeName.isEmpty() -> null
-            file(storeName).isAbsolute -> file(storeName)
-            else -> file(propsFile.parentFile.resolve(storeName).absolutePath)
+            storePath.isAbsolute -> storePath
+            else -> java.io.File(propsFile.parentFile, storeName)
         }
         values["storeFile"] = store?.absolutePath.orEmpty()
         values["storePassword"] = props.getProperty("storePassword").orEmpty()
